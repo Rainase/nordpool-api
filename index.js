@@ -1,5 +1,5 @@
-import * as Prices from './lib/prices';
+const DayAheadPricesHourly = require("./lib/prices");
 
-const nordpool =  {hourly:Prices.DayAheadPricesHourly()}
+const nordpool = { hourly: (region, VAT) => DayAheadPricesHourly(region, VAT) };
 
-export default {nordpool}
+module.exports = nordpool;
