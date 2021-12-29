@@ -1,14 +1,19 @@
 {
   "name": "@offrain/nordpool",
-  "version": "1.0.4",
+  "version": "1.0.9",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.5",
+    "typescript": "^4.5.4"
   }
 }
