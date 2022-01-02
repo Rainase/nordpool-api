@@ -10,7 +10,7 @@ export type ReturnedValues = {
   date: string;
   hour: string;
   marketPrice: number;
-  priceWithVAT: number | string;
+  consumerPrice: number | string;
   consumerUnit: string;
   marketUnit: string;
 }[];
@@ -45,7 +45,7 @@ export const DayAheadPricesHourly = async ({
             date: date.toISOString(),
             hour,
             marketPrice: value,
-            priceWithVAT:
+            consumerPrice:
               vat !== undefined
                 ? Number(valueWithVat.toFixed(2))
                 : 'VAT nr. not provided',

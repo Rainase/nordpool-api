@@ -55,7 +55,7 @@ getHourlyRates();
     "date": "2021-12-22T22:00:00.000Z", // Local Server Time
     "hour": "00:00", // Local Server Time
     "marketPrice": 181.9,
-    "priceWithVAT": 218.28,
+    "consumerPrice": 21.82,
     "consumerUnit": "snt/kWh"
     "marketUnit": "EUR/mWh"
   }

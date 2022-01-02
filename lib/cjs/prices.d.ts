@@ -8,7 +8,7 @@ export declare type ReturnedValues = {
     date: string;
     hour: string;
     marketPrice: number;
-    priceWithVAT: number | string;
+    consumerPrice: number | string;
     consumerUnit: string;
     marketUnit: string;
 }[];
