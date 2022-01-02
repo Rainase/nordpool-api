@@ -1,6 +1,14 @@
 import { DayAheadPricesHourly } from './prices';
+import { PricesProps, ReturnedValues } from './prices';
+
+const hourly = ({
+  area,
+  vat,
+  currency,
+}: PricesProps): Promise<ReturnedValues> => {
+  return DayAheadPricesHourly({ area, vat, currency });
+};
 
 export const nordpool = {
-  hourly: (region: Array<string>, VAT: number, currency: string) =>
-    DayAheadPricesHourly({ area: region, vat: VAT, currency: currency }),
+  hourly,
 };

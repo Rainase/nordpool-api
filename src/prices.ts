@@ -1,17 +1,29 @@
 import axios from 'axios';
 import { config } from './config';
-interface PricesProps {
-  area: Array<string>;
+export type PricesProps = {
+  area: Array<string> | string;
   vat: number;
   currency?: string;
-}
-export const DayAheadPricesHourly = async (options: PricesProps) => {
-  const url = `${config.priceUrlHourly}?currency=${options.currency},${options.currency},EUR,EUR`;
+};
+export type ReturnedValues = {
+  region: string;
+  date: string;
+  hour: string;
+  marketPrice: number;
+  priceWithVAT: number | string;
+  consumerUnit: string;
+  marketUnit: string;
+}[];
+export const DayAheadPricesHourly = async ({
+  currency,
+  area,
+  vat,
+}: PricesProps): Promise<ReturnedValues> => {
+  const url = `${config.priceUrlHourly}?currency=${currency},${currency},EUR,EUR`;
   const response = await axios.get(url);
   const { data } = await response.data;
-
+  const values = [];
   if (data && data.Rows && data.Rows.length) {
-    const values = [];
     for (const row of data.Rows) {
       if (row.IsExtraRow) {
         continue;
@@ -22,27 +34,27 @@ export const DayAheadPricesHourly = async (options: PricesProps) => {
         const value = parseFloat(
           column.Value.replace(/,/, '.').replace(/ /g, '')
         );
-        const valueWithVat = value * ((100 + options.vat) / 1000);
+        const valueWithVat = value * ((100 + vat) / 1000);
         if (isNaN(value)) {
           continue;
         }
         const region = column.Name;
-        if (!options.area || options.area.indexOf(region) >= 0) {
+        if (!area || area.indexOf(region) >= 0) {
           values.push({
             region: region,
             date: date.toISOString(),
             hour,
-            price: value,
+            marketPrice: value,
             priceWithVAT:
-              options.vat !== undefined
+              vat !== undefined
                 ? Number(valueWithVat.toFixed(2))
-                : 'VAT nr not provided',
+                : 'VAT nr. not provided',
             consumerUnit: 'snt/kWh',
-            marketUnit: 'snt/mWh',
+            marketUnit: 'EUR/mWh',
           });
         }
       }
     }
-    return values;
   }
+  return values;
 };

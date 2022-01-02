@@ -1,14 +1,15 @@
-interface PricesProps {
-    area: Array<string>;
+export declare type PricesProps = {
+    area: Array<string> | string;
     vat: number;
     currency?: string;
-}
-export declare const DayAheadPricesHourly: (options: PricesProps) => Promise<{
-    region: any;
+};
+export declare type ReturnedValues = {
+    region: string;
     date: string;
     hour: string;
     price: number;
-    priceWithVAT: string | number;
-    unit: string;
-}[] | undefined>;
-export {};
+    priceWithVAT: number | string;
+    consumerUnit: string;
+    marketUnit: string;
+}[];
+export declare const DayAheadPricesHourly: ({ currency, area, vat }: PricesProps) => Promise<ReturnedValues>;
