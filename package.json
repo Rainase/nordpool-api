@@ -1,13 +1,20 @@
 {
   "name": "@offrain/nordpool",
-  "version": "1.0.11",
+  "version": "1.0.15",
   "description": "",
   "main": "./lib/cjs/index.js",
   "module": "./lib/index.js",
   "scripts": {
     "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json"
   },
-  "author": "",
+  "keywords": [
+    "nordpool",
+    "api",
+    "energy",
+    "prices",
+    "volume"
+  ],
+  "author": "Rain K.",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0"

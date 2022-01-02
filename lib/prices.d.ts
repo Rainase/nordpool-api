@@ -7,9 +7,9 @@ export declare type ReturnedValues = {
     region: string;
     date: string;
     hour: string;
-    price: number;
+    marketPrice: number;
     priceWithVAT: number | string;
     consumerUnit: string;
     marketUnit: string;
 }[];
-export declare const DayAheadPricesHourly: ({ currency, area, vat }: PricesProps) => Promise<ReturnedValues>;
+export declare const DayAheadPricesHourly: ({ currency, area, vat, }: PricesProps) => Promise<ReturnedValues>;

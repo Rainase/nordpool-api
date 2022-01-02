@@ -11,7 +11,7 @@ This API is a tool to fetch `DayAhead` Prices from NordPool Market
 
 # Install
 
-## Install using npm
+### Install using npm
 
 `npm i @offrain/nordpool`
 
@@ -21,7 +21,7 @@ This API is a tool to fetch `DayAhead` Prices from NordPool Market
 // ES module
 import { nordpool } from '@offrain/nordpool';
 const getHourlyRates = async () => {
-  const data = await nordpool.hourly('AT', 20, 'EUR');
+  const data = await nordpool.hourly({ area: 'FI', vat: 20, currency: 'EUR' });
   console.log("Today's hourly prices:", data);
 };
 
