@@ -1,6 +1,6 @@
 {
   "name": "@offrain/nordpool",
-  "version": "1.0.17",
+  "version": "1.0.19",
   "description": "",
   "main": "./lib/cjs/index.js",
   "module": "./lib/index.js",

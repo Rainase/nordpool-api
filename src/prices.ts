@@ -4,6 +4,7 @@ export type PricesProps = {
   area: Array<string> | string;
   vat: number;
   currency?: string;
+  endDate?: string
 };
 export type ReturnedValues = {
   region: string;
@@ -18,8 +19,12 @@ export const DayAheadPricesHourly = async ({
   currency,
   area,
   vat,
+  endDate
 }: PricesProps): Promise<ReturnedValues> => {
-  const url = `${config.priceUrlHourly}?currency=${currency},${currency},EUR,EUR`;
+  const today = new Date()
+  const fallbackDate = `${today.getDate()}-${today.getDay()}-${today.getFullYear() }`
+  const finalDate = endDate ? endDate : fallbackDate
+  const url = `${config.priceUrlHourly}?currency=${currency},${currency},EUR,EUR&endDate=${finalDate}`;
   const response = await axios.get(url);
   const { data } = await response.data;
   const values = [];

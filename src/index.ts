@@ -5,8 +5,9 @@ const hourly = ({
   area,
   vat,
   currency,
+  endDate
 }: PricesProps): Promise<ReturnedValues> => {
-  return DayAheadPricesHourly({ area, vat, currency });
+  return DayAheadPricesHourly({ area, vat, currency, endDate });
 };
 
 export const nordpool = {

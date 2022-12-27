@@ -1,9 +1,10 @@
-export declare type PricesProps = {
+export type PricesProps = {
     area: Array<string> | string;
     vat: number;
     currency?: string;
+    endDate?: string;
 };
-export declare type ReturnedValues = {
+export type ReturnedValues = {
     region: string;
     date: string;
     hour: string;
@@ -12,4 +13,4 @@ export declare type ReturnedValues = {
     consumerUnit: string;
     marketUnit: string;
 }[];
-export declare const DayAheadPricesHourly: ({ currency, area, vat, }: PricesProps) => Promise<ReturnedValues>;
+export declare const DayAheadPricesHourly: ({ currency, area, vat, endDate }: PricesProps) => Promise<ReturnedValues>;
