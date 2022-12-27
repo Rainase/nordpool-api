@@ -22,7 +22,7 @@ export const DayAheadPricesHourly = async ({
   endDate
 }: PricesProps): Promise<ReturnedValues> => {
   const today = new Date()
-  const fallbackDate = `${today.getDate()}-${today.getDay()}-${today.getFullYear() }`
+  const fallbackDate = `${today.getDate()}-${today.getMonth()}-${today.getFullYear() }`
   const finalDate = endDate ? endDate : fallbackDate
   const url = `${config.priceUrlHourly}?currency=${currency},${currency},EUR,EUR&endDate=${finalDate}`;
   const response = await axios.get(url);
