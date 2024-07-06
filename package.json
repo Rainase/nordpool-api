@@ -1,11 +1,12 @@
 {
   "name": "@offrain/nordpool",
-  "version": "1.0.20",
+  "version": "2.0.0",
   "description": "",
   "main": "./lib/cjs/index.js",
   "module": "./lib/index.js",
+  "types":"./lib/index.d.ts",
   "scripts": {
-    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json"
+    "build": "tsup"
   },
   "keywords": [
     "nordpool",

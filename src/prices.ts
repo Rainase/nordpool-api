@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { config } from './config';
+import { DayAheadResponse, MultiAreaEntry } from './types';
 export type PricesProps = {
   area: Array<string> | string;
   vat: number;
@@ -63,3 +64,14 @@ export const DayAheadPricesHourly = async ({
   }
   return values;
 };
+
+export const DayAheadHourly = async ({area, currency}: {
+  area:string,
+  currency:string
+}):Promise<MultiAreaEntry[]> => {
+  const today = `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`
+  const apiUrl = `${config.apiUrl}?date=${today}&market=DayAhead&deliveryArea=${area}&currency=${currency ? currency : "EUR"}`
+  const result:DayAheadResponse = (await axios(apiUrl)).data
+  const prices = result.multiAreaEntries
+  return prices
+}

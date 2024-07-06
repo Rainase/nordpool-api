@@ -1,0 +1,6 @@
+testing/
+node_modules/
+lib/
+.DS_Store
+.tsconfig.json
+.tsup.config.ts
