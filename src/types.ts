@@ -13,9 +13,9 @@ export interface MultiAreaEntry {
   entryPerArea: EntryPerArea;
 }
 
-interface EntryPerArea {
-  EE: number;
-}
+type EntryPerArea = {
+  [key in Currency]: number;
+};
 const Currencies = [
     "EUR", "DKK", "NOK", "SEK"
 ] as const;

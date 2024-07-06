@@ -11,9 +11,9 @@ interface MultiAreaEntry {
     deliveryEnd: string;
     entryPerArea: EntryPerArea;
 }
-interface EntryPerArea {
-    EE: number;
-}
+type EntryPerArea = {
+    [key in Currency]: number;
+};
 declare const Currencies: readonly ["EUR", "DKK", "NOK", "SEK"];
 type Currency = (typeof Currencies)[number];
 declare const Countries: readonly ["EE", "AT", "FI"];
