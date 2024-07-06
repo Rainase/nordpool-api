@@ -12,6 +12,6 @@
       "noEmit": true,
       "outDir": "lib"
   },
-  "include": ["src"],
+  "include": ["src", "testing/test.ts"],
   "exclude": ["node_modules"]
 }

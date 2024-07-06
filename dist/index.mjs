@@ -62,26 +62,7 @@ var DayAheadHourly = async ({ area, currency }) => {
   const prices = result.multiAreaEntries;
   return prices;
 };
-
-// src/index.ts
-var hourly = ({
-  area,
-  vat,
-  currency,
-  endDate
-}) => {
-  return DayAheadPricesHourly({ area, vat, currency, endDate });
-};
-var dayAhead = ({
-  area,
-  currency
-}) => {
-  return DayAheadHourly({ area, currency });
-};
-var nordpool = {
-  hourly,
-  dayAhead
-};
 export {
-  nordpool
+  DayAheadHourly,
+  DayAheadPricesHourly
 };

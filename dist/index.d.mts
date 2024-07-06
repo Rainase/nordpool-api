@@ -1,3 +1,11 @@
+interface DayAheadResponse {
+    deliveryDateCET: string;
+    version: number;
+    updatedAt: string;
+    deliveryAreas: Area;
+    market: string;
+    multiAreaEntries: MultiAreaEntry[];
+}
 interface MultiAreaEntry {
     deliveryStart: string;
     deliveryEnd: string;
@@ -26,13 +34,10 @@ type ReturnedValues = {
     consumerUnit: string;
     marketUnit: string;
 }[];
+declare const DayAheadPricesHourly: ({ currency, area, vat, endDate }: PricesProps) => Promise<ReturnedValues>;
+declare const DayAheadHourly: ({ area, currency }: {
+    area: string;
+    currency: string;
+}) => Promise<MultiAreaEntry[]>;
 
-declare const nordpool: {
-    hourly: ({ area, vat, currency, endDate, }: PricesProps) => Promise<ReturnedValues>;
-    dayAhead: ({ area, currency, }: {
-        area: Area;
-        currency: Currency;
-    }) => Promise<MultiAreaEntry[]>;
-};
-
-export { nordpool };
+export { type Area, type Currency, DayAheadHourly, DayAheadPricesHourly, type DayAheadResponse, type MultiAreaEntry, type PricesProps, type ReturnedValues };

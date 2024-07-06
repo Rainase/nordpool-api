@@ -30,7 +30,8 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
-  nordpool: () => nordpool
+  DayAheadHourly: () => DayAheadHourly,
+  DayAheadPricesHourly: () => DayAheadPricesHourly
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -98,27 +99,8 @@ var DayAheadHourly = async ({ area, currency }) => {
   const prices = result.multiAreaEntries;
   return prices;
 };
-
-// src/index.ts
-var hourly = ({
-  area,
-  vat,
-  currency,
-  endDate
-}) => {
-  return DayAheadPricesHourly({ area, vat, currency, endDate });
-};
-var dayAhead = ({
-  area,
-  currency
-}) => {
-  return DayAheadHourly({ area, currency });
-};
-var nordpool = {
-  hourly,
-  dayAhead
-};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  nordpool
+  DayAheadHourly,
+  DayAheadPricesHourly
 });
